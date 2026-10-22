@@ -1,6 +1,6 @@
 # Owner brief (digest of the master prompt)
 
-**Provenance.** The owner's original master prompt exists only in chat. This is a digest of its requirements, reconstructed in the Phase 0 session from the retained task notes, so that later sessions do not depend on chat history. The owner is asked to confirm it at Gate 0 (or paste the original text over it). `PROJECT_SPEC.md` (Gate 1) supersedes this file as the canonical requirements document; guardrails and working rules live in `../AGENTS.md`, not here.
+**Provenance.** The owner's original master prompt exists only in chat. This is a digest of its requirements, reconstructed in the Phase 0 session from the retained task notes, so that later sessions do not depend on chat history. The owner confirmed it by approving Gate 0 on 2026-10-22. `PROJECT_SPEC.md` (Gate 1) supersedes this file as the canonical requirements document; guardrails and working rules live in `../AGENTS.md`, not here.
 
 ## Product
 

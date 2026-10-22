@@ -30,7 +30,7 @@ The project decision log. Every entry: what was decided, why, and how to reverse
 - **Reverse:** none needed.
 
 ### D-006: Issue tracker defaults (setup skill, run manually)
-- **Status:** tracker confirmed by the owner on 2026-10-22: local markdown, chosen when GitHub Issues was offered as the alternative. The default labels and single-context domain docs are still confirmed at Gate 0.
+- **Status:** accepted. The tracker (local markdown) was confirmed by the owner on 2026-10-22 when GitHub Issues was offered as the alternative; the default labels and single-context domain docs were confirmed by the Gate 0 approval the same day.
 - **Why:** the `gh` CLI is not installed here, the GitHub remote's deploy key cannot manage Issues (D-013), and the skill recommends local markdown for solo projects. Defaults: local-markdown tracker under `.scratch/<feature>/`, the five default triage labels, single-context domain docs (`GLOSSARY.md` + `docs/adr/`). `PROJECT_SPEC.md` stays the canonical product spec.
 - **Reverse:** re-run the setup procedure to switch to GitHub or GitLab; tickets are plain markdown and port easily.
 
@@ -55,7 +55,7 @@ The project decision log. Every entry: what was decided, why, and how to reverse
 - **Reverse:** merge into another doc; keep one source of truth.
 
 ### D-011: `docs/owner-brief.md` makes the brief durable
-- **Status:** proposed (owner confirms the digest at Gate 0).
+- **Status:** accepted (the owner confirmed the digest by approving Gate 0 on 2026-10-22).
 - **Why:** the master prompt exists only in chat, and sessions must not rely on chat history.
 - **Reverse:** delete once `PROJECT_SPEC.md` is approved at Gate 1.
 

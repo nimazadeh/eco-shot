@@ -1,25 +1,23 @@
 # PROGRESS
 
-_Last updated: 2026-10-22, session 1 continued (Phase 0, after Gate 0 was presented)._
+_Last updated: 2026-10-22, session 2 (Gate 0 approved; Phase 1 starting)._
 
 ## Where we are
 
-**Phase 0 (skills + workspace) is complete and waiting for the owner's Gate 0 approval.** No application code exists. Phase 1 has not started and must not start before approval.
+**Gate 0 was approved by the owner on 2026-10-22** (reply: "Gate 0 agree go to phase 1 start"; option 1, approve as is, which also confirms D-006 and D-011). Phase 0 is closed. **Phase 1 (discovery + spec) starts now.** No application code exists.
 
-After Gate 0 was presented, the owner asked to work in GitHub and for officially verified, latest stack versions. Done: a repo-scoped SSH deploy key was generated and its public half given to the owner; GitHub's SSH reachability and host keys were verified (`DECISIONS.md` D-013); stack versions were checked against official sources and resolver-tested (`TECH_STACK.md`, draft; D-014). The owner decided: keep the repository public, keep tickets as local markdown, use the newest stable set that works together (D-013, D-006, D-014). **Nothing has been pushed yet:** the owner has not registered the key (GitHub still answers `Permission denied (publickey)`).
+The GitHub deploy key is registered and authenticated (`ssh -T` greeted `nimazadeh/eco-shot` at 15:44 UTC). The first push follows the commit tagged `gate-0`. Decided earlier on 2026-10-22: keep the repository public (D-013), tickets stay local markdown (D-006), newest stable set that works together (D-014).
 
 ## Next smallest task
 
-- **Owner adds the deploy key** (GitHub -> Settings -> Deploy keys, tick "Allow write access") and replies "added". Then, in this order: `ssh -T git@github.com` (expect a greeting naming `nimazadeh/eco-shot`); the pre-push checks in the resume checklist; `git push -u origin main` (the remote is empty; never force). Record the result in `report.md`.
-- **If the owner approves Gate 0:** start Phase 1 in a fresh session. Read `AGENTS.md`, this file, `report.md`, `docs/owner-brief.md` and `skills/SKILL_INDEX.md`; then open `skills/SKILL_USAGE_MAP.md` section 5 (Phase 1) and run Matt Pocock's `wayfinder` "chart the map" mode: name the destination (an approved `PROJECT_SPEC.md`), grill breadth-first with `ask_user`, and write `.scratch/commerce-platform/map.md` with the first decision tickets. Seed topics from the brief (not decisions): payment gateway adapter(s), SMS provider(s), shipping options, digital-product delivery, inventory model, Rial/Toman rule, RBAC roles, CMS scope, Torob and Emalls feed requirements (official docs needed), OTP policy.
-- **If the owner asks for changes:** apply them to the Phase 0 files, re-run the integrity checks below, replace `report.md`, and present Gate 0 again.
+**Phase 1, session 2:** run Matt Pocock's `wayfinder` in "chart the map" mode (`skills/vendor/mattpocock-skills/skills/engineering/wayfinder/SKILL.md`, with `grilling` and `domain-modeling`). Name the destination (an approved `PROJECT_SPEC.md` at Gate 1), grill breadth-first with `ask_user`, and write `.scratch/commerce-platform/map.md` plus the first decision tickets under `.scratch/commerce-platform/issues/`. Seed topics from the brief (not decisions): payment gateway adapter(s), SMS provider(s), shipping options, digital-product delivery, inventory model, Rial/Toman rule, RBAC roles, CMS scope, Torob and Emalls feed requirements (official docs needed), OTP policy. Facts come from primary sources that I look up; decisions come from the owner's answers.
 
 ## Phase status
 
 | Phase | Gate | Status |
 |---|---|---|
-| 0 Skills + workspace | 0 | **complete, awaiting approval** |
-| 1 Discovery + spec | 1 | not started |
+| 0 Skills + workspace | 0 | **complete; Gate 0 approved 2026-10-22** |
+| 1 Discovery + spec | 1 | **in progress** (session 2) |
 | 2 Architecture + API contracts | 2 | not started |
 | 3 Design system + UX prototype | 3 | not started |
 | 4 Frontend with mock adapters | 4 | not started |
@@ -29,21 +27,19 @@ After Gate 0 was presented, the owner asked to work in GitHub and for officially
 | 8 Integration + production audit | 8 | not started |
 | 9 Release + handoff | (final) | not started |
 
-## Open items for the owner (answer at Gate 0; none blocks Phase 0)
+## Open items for the owner
 
-1. Add the deploy key on GitHub (the public key and its fingerprint are in `report.md` section 10), then reply "added".
-2. Confirm the default triage labels and single-context domain docs in `docs/agents/` (D-006; the tracker itself is decided) and the digest in `docs/owner-brief.md`, or paste the original master prompt over it (D-011).
-3. Decide whether the partial reads listed in `report.md` section 5 must be closed before Phase 1, or at each skill's first use (the default).
-4. Before Gate 2: tell me the Node and PostgreSQL versions installed on the Windows machine (`node -v`, `psql --version`).
+1. Before Gate 2: tell me the Node and PostgreSQL versions installed on the Windows machine (`node -v`, `psql --version`).
 
-Decided on 2026-10-22 (no longer open): keep the repository public (D-013), tickets stay local markdown (D-006), newest stable set that works together (D-014).
+Decided on 2026-10-22 (no longer open): keep the repository public (D-013); tickets stay local markdown (D-006); newest stable set that works together (D-014); digest in `docs/owner-brief.md` confirmed (D-011); the partial reads listed in `report.md` section 5 stay as the default: each file is read in full at its skill's first use.
 
 Later approvals already foreseen: Impeccable engine first run and build path (Gate 3); stack versions (Gate 2, `TECH_STACK.md` section 4); any Docker use; any destructive database action.
 
 ## Session log (latest first)
 
-- **2026-10-22, session 1 continued.** After Gate 0 was presented: generated the deploy key and pinned GitHub's host keys; confirmed SSH reachability; found the repo public and empty; committed the `.ssh/` ignore rule (`ccdfae4`); checked stack versions at official sources and resolver-tested them under Node 24.22.1 (`TECH_STACK.md`, D-014); corrected the read depth of Impeccable `critique.md` to about 97%; replaced `report.md`. The owner then decided: public repo, local-markdown tickets, newest stable set that works together. Re-test: `ssh -T` still `Permission denied (publickey)`, so the key is not registered yet. Nothing pushed.
-- **2026-10-22, session 1, Phase 0.** Inspected the environment; fetched the six required skill repositories at pinned SHAs; read their instructions (depth per file in `skills/SKILL_INDEX.md`); vendored the retained paths unmodified with a lock file and sha256 manifest; wrote the skill index, usage map, `AGENTS.md`, `CODING_STANDARDS.md`, `DECISIONS.md`, the setup-skill docs under `docs/agents/`, this file and `report.md`; initialised git. Results and exact commands: `report.md`.
+- **2026-10-22, session 2, Phase 1.** Gate 0 approved. Deploy key authenticated. Recorded the approval (D-006 and D-011 accepted), scanned the tracked files for secrets (none), tagged `gate-0` and pushed. Read the session-start files and the Phase 1 skills in full (`wayfinder`, `grilling`, `domain-modeling` with its two format docs, `grill-with-docs`, `research`, `to-questionnaire`, `to-spec`). Started charting the map.
+- **2026-10-22, session 1 continued.** After Gate 0 was presented: generated the deploy key and pinned GitHub's host keys; confirmed SSH reachability; found the repo public and empty; committed the `.ssh/` ignore rule (`ccdfae4`); checked stack versions at official sources and resolver-tested them under Node 24.22.1 (`TECH_STACK.md`, D-014); corrected the read depth of Impeccable `critique.md` to about 97%; replaced `report.md`. The owner decided: public repo, local-markdown tickets, newest stable set that works together.
+- **2026-10-22, session 1, Phase 0.** Inspected the environment; fetched the six required skill repositories at pinned SHAs; read their instructions (depth per file in `skills/SKILL_INDEX.md`); vendored the retained paths unmodified with a lock file and sha256 manifest; wrote the skill index, usage map, `AGENTS.md`, `CODING_STANDARDS.md`, `DECISIONS.md`, the setup-skill docs under `docs/agents/`, this file and `report.md`; initialised git.
 
 ## Known constraints
 
