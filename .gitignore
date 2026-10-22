@@ -25,3 +25,8 @@ Thumbs.db
 
 # Agent SSH material: the private deploy key must never be committed
 .ssh/
+
+# Tool state created under the home directory (also excluded from snapshots)
+.npm/
+.cache/
+.local/

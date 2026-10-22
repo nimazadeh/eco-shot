@@ -151,7 +151,7 @@ Entry point: `vendor/pbakaus-impeccable/skill/SKILL.src.md` (a **template**: pla
 | `extract [target]` | Build | Pull tokens/components into the design system | `extract.md` | Phase 3-4 | not read |
 | `craft [feature]` | Build | Deprecated alias for ordinary new-work | `craft.md` | n/a (use new-work flow) | full |
 | `(new-work flow)` | Build | New surface / replacement visual world playbook | `new-work.md` | Phase 3 (engine-bound; code-led vs comp-led = Gate-3 decision) | ~90% (comp-led gate details truncated) |
-| `critique [target]` | Evaluate | UX design review with Nielsen heuristic scoring + personas | `critique.md` | Gates 3, 4, 8 (degraded single-context banner required here) | full |
+| `critique [target]` | Evaluate | UX design review with Nielsen heuristic scoring + personas | `critique.md` | Gates 3, 4, 8 (degraded single-context banner required here) | about 97% (about 15 lines of Assessment B, desktop-app and Codex browser specifics, were truncated and not seen) |
 | `audit [target]` | Evaluate | Technical quality audit (a11y, perf, theming, responsive, integrity), P0-P3 | `audit.md` | Phase 4, 8 | full |
 | `polish [target]` | Refine | Final quality pass before shipping | `polish.md` | Phase 4, 8 | full |
 | `harden [target]` | Refine | Errors, i18n/RTL, edge cases (incl. Persian specifics) | `harden.md` | Phase 3-4 (RTL/Persian), 6 | full |

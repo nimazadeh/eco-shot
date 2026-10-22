@@ -63,3 +63,21 @@ The project decision log. Every entry: what was decided, why, and how to reverse
 - **Status:** accepted.
 - **Why:** the owner's next message is then the explicit approval, and a session ends at the gate. `ask_user` is reserved for material decisions inside a phase.
 - **Reverse:** none needed.
+
+## Follow-up after Gate 0 was presented (2026-10-22)
+
+### D-013: GitHub remote reached with a repo-scoped SSH deploy key
+- **Status:** mechanism accepted (owner: "work in GitHub", and asked for a key for this purpose). **No push until the owner settles repo visibility:** on 2026-10-22 `github.com/nimazadeh/eco-shot` was public, default branch `main`, with no refs.
+- **What:** remote `origin` = `git@github.com:nimazadeh/eco-shot.git` (deploy keys work over SSH only). Key: ed25519, no passphrase (it must work unattended), `~/.ssh/eco_shot_deploy_ed25519`, fingerprint `SHA256:rmTZXuXJcJVnBf8/4iODRGTdqg4vzNdBJIKCiTnhJ98`. The owner adds the public half under Settings -> Deploy keys with "Allow write access". GitHub's host keys are pinned in `~/.ssh/known_hosts` (taken from `api.github.com/meta`; all three fingerprints matched `docs.github.com`), with `StrictHostKeyChecking yes`.
+- **Handling:** `~/.ssh/` is gitignored (root `.gitignore` plus a nested `*`) and the private key is never printed or committed. `~/.ssh/` sits inside the workspace and the snapshot includes it, so the workspace must not be exported or shared together with `.ssh/`. Before every push: nothing is tracked under `.ssh/`, and no commit contains the private key (commands in `PROGRESS.md`; the search uses key-file line 5, which holds the secret seed).
+- **Rules:** push at checkpoints, to `main`. Never force-push, delete a remote branch or tag, or rewrite pushed history without explicit approval. Tag each approved gate `gate-N` (annotated).
+- **Limits:** a deploy key does git push and pull only. It cannot use the GitHub API, so it cannot manage Issues, Pull Requests or Actions; the tracker stays local markdown (D-006) unless the owner supplies a separate fine-grained token. `.git/config` is not persisted between sessions, so `origin` is re-added at each session start.
+- **Why:** the sandbox cannot use the owner's own credentials; a deploy key is limited to one repository and the owner can revoke it at any time.
+- **Reverse:** delete the key in GitHub (Settings -> Deploy keys), delete `~/.ssh/eco_shot_deploy_ed25519*`, run `git remote remove origin`.
+
+### D-014: Versions are the newest stable set that works together, verified at official sources at the time of use
+- **Status:** policy accepted (owner, 2026-10-22: the stack must be the latest, taken from the official website). How to treat a newest version that breaks its neighbours is **proposed**: the owner decides.
+- **Rule:** never take a version from memory. Check official sources before Phase 2 and before each install, and record version, source and date in `TECH_STACK.md`. Pre-releases (rc, beta, canary, Node "Current", PostgreSQL RC) only with owner approval. Runtime: LTS only, as nodejs.org says for production. Database: the newest supported major, never an RC.
+- **Evidence (2026-10-22; table and method in `TECH_STACK.md`):** the newest versions do not all work together. TypeScript 7.0.2 is refused by npm next to typescript-eslint 8.72.0 (peer `<6.1.0`, also for its canary). ESLint 10.13.0 is outside the declared peer range of three plugins that `eslint-config-next` 16.4.2 depends on. Node 26 is "Current", not LTS. PostgreSQL 19 and Drizzle 1.0 are release candidates. The newest set that resolved cleanly under Node 24.22.1 and npm 11.19.1 is TypeScript 6.0.3, ESLint 9.39.5, Next.js 16.4.2, React 19.3.1, Tailwind 4.3.3, Drizzle 0.45.4 and Kit 0.31.11, Zod 4.6.7, Vitest 5.0.5 and Playwright 1.64.1. That is a resolver test only: nothing was built or run.
+- **Proposed default:** use that set and upgrade each piece the moment its blocker clears, re-checked at the start of Phase 2 and before each install. Alternative: pin the absolute newest numbers (TypeScript 7.0.2 without typescript-eslint, ESLint 10 with overridden peers, Node 26, Drizzle 1.0 RC). Not recommended for a production store.
+- **Reverse:** change the pins in `TECH_STACK.md` at Gate 2, or later through a new decision.
