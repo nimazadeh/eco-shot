@@ -15,6 +15,7 @@ After the gateway, SMS and tax research is in, give the owner a precise checklis
 - From the Torob and Emalls research: both require an Enamad before listing; Emalls asks for further documents for phones, digital goods and computers.
 - From the SMS providers research: an OTP template must be approved or created in the provider's panel before the first code is sent, and some providers need the server's outgoing IP registered. Prices were not fetched; the owner should check them at sign-up.
 - From the payment gateways and tax and law research: the final domain, an Enamad and a registered server IP are inputs to gateway activation; a bank gateway reportedly needs documents, account and Enamad in one person's name (secondary source). Sandbox lets development start before activation.
+- From the catalog model ticket: the owner delegated whether phones or tablets will be sold (default: not special-cased). Emalls asks for a trade licence for those categories and Torob prohibits some phone models, so confirm when accounts are prepared.
 
 ## Inputs
 

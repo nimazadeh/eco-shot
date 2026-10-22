@@ -17,6 +17,7 @@ Blocked by: none
 
 - The team is the owner plus a few staff; several roles with separate permissions and an audit log (owner decision).
 - Role grants need the owner's approval when they are implemented (`skills/SKILL_USAGE_MAP.md` section 8).
+- From the catalog model decisions: staff manage a three-level category tree, brands, specification fields per category, product states (Draft, Published, Discontinued, Hidden), variants (SKU, price, before price, stock or code stock, images, warranty line) and a per-product feed opt-out; the CSV import and export must cover them.
 
 ## Inputs
 

@@ -17,6 +17,7 @@ Blocked by: 06, 07
 
 - Terms defined so far: Code stock, Digital code.
 - From the tax and law research: selling stock that is not there triggers an immediate-refund duty (article 39), which makes reservation and oversell rules a legal as well as a business matter.
+- From the catalog model decisions: stock is per variant (physical stock, or code stock for digital variants); out of stock is derived and is not a product state.
 
 ## Inputs
 
