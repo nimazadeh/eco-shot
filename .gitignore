@@ -22,3 +22,6 @@ Thumbs.db
 
 # Transient agent scratch (ticket files under .scratch/<feature>/ ARE tracked)
 .scratch/_tmp/
+
+# Agent SSH material: the private deploy key must never be committed
+.ssh/
