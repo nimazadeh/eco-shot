@@ -17,6 +17,7 @@ Blocked by: 01, 02
 
 - Use the stricter of the two performance budget sets until measured (`skills/SKILL_USAGE_MAP.md` section 3).
 - From the Torob and Emalls research: product price and availability must be readable with JavaScript disabled (Torob's terms).
+- From the SMS providers research: providers can restrict API calls by source IP (Kavenegar, SMS.ir, Melipayamak), so the production server needs a stable outgoing IP that can be registered.
 
 ## Inputs
 

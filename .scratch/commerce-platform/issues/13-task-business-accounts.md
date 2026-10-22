@@ -13,6 +13,7 @@ After the gateway, SMS and tax research is in, give the owner a precise checklis
 - Human in the loop. Lead times for gateways, SMS lines and Enamad can be weeks; this ticket exists so they start early.
 - The owner never pastes secrets into chat or the repository.
 - From the Torob and Emalls research: both require an Enamad before listing; Emalls asks for further documents for phones, digital goods and computers.
+- From the SMS providers research: an OTP template must be approved or created in the provider's panel before the first code is sent, and some providers need the server's outgoing IP registered. Prices were not fetched; the owner should check them at sign-up.
 
 ## Inputs
 

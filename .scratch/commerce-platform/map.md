@@ -32,6 +32,7 @@ An owner-approved `PROJECT_SPEC.md` (Gate 1): the one canonical definition of V1
 
 <!-- One line per resolved ticket: [title](issues/NN-slug.md): gist -->
 
+- [SMS providers: which Iranian providers can send OTP, and what do their official docs say?](issues/02-research-sms-providers.md): all four candidates (Kavenegar, SMS.ir, Ghasedak, Melipayamak) document template-based OTP; only SMS.ir documents a sandbox; OTP wording is fixed per approved template; providers limit by IP and rate; prices and the regulator's OTP rule are still unread.
 - [Torob and Emalls: what do they officially require, and where are their docs?](issues/03-research-torob-emalls.md): Torob has an official written Product API v3 (JSON, signed JWT, integer Toman) and crawls small shops; Emalls has no public spec for custom shops (robot crawl; WooCommerce plugin only). Both require an Enamad; Torob's terms need price and availability readable without JavaScript.
 
 ## Not yet specified

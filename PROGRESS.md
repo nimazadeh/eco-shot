@@ -1,27 +1,27 @@
 # PROGRESS
 
-_Last updated: 2026-10-22, session 2 (Phase 1: map charted, first research ticket resolved)._
+_Last updated: 2026-10-22, session 2 (Phase 1: map charted, two research tickets resolved)._
 
 ## Where we are
 
 **Phase 1 (discovery + spec) is in progress.** Gate 0 was approved on 2026-10-22 (annotated tag `gate-0`). No application code exists. Everything is on GitHub (`main`, public repository).
 
-The decision map is charted: `.scratch/commerce-platform/map.md` with 18 tickets in `.scratch/commerce-platform/issues/` (5 research, 12 grilling, 1 task). Resolved so far: *Torob and Emalls* (research; findings in `.scratch/commerce-platform/research/torob-emalls.md`). The owner answered two scope rounds (digital delivery, payments, shipping, languages, scale, existing data, customer features, team); the answers are in the map's Notes. `GLOSSARY.md` has 15 terms.
+The decision map is charted: `.scratch/commerce-platform/map.md` with 18 tickets in `.scratch/commerce-platform/issues/` (5 research, 12 grilling, 1 task). Resolved so far: two research tickets, *Torob and Emalls* and *SMS providers* (findings in `.scratch/commerce-platform/research/`). The owner answered two scope rounds (digital delivery, payments, shipping, languages, scale, existing data, customer features, team); the answers are in the map's Notes. `GLOSSARY.md` has 15 terms.
 
 ## Next smallest task
 
-**Next session:** resolve the remaining research tickets inline and in this order (they are AFK, so the one-ticket-per-session rule does not apply to them): *Payment gateways*, *SMS providers*, *Tax and consumer law*, *Shipping and addresses*. Follow `research` (primary sources only, cite each claim, write `.scratch/commerce-platform/research/<slug>.md`). To work a ticket: set `Status: claimed` first; resolve it by appending an `## Answer` and setting `Status: resolved`; add a one-line gist to the map's "Decisions so far"; pass useful facts into the context of dependent tickets. Then, with the owner, resolve **one** grilling ticket: *Catalog model* or *Admin panel roles* (both are unblocked); the owner may choose.
+**Next session:** resolve the remaining research tickets inline and in this order (they are AFK, so the one-ticket-per-session rule does not apply to them): *Payment gateways*, *Tax and consumer law*, *Shipping and addresses*. Follow `research` (primary sources only, cite each claim, write `.scratch/commerce-platform/research/<slug>.md`). To work a ticket: set `Status: claimed` first; resolve it by appending an `## Answer` and setting `Status: resolved`; add a one-line gist to the map's "Decisions so far"; pass useful facts into the context of dependent tickets. Then, with the owner, resolve **one** grilling ticket: *Catalog model*, *Phone-OTP policy* or *Admin panel roles* (all three are unblocked); the owner may choose, otherwise the first by number (*Catalog model*).
 
 Frontier command, run in `.scratch/commerce-platform/issues/`:
 `for f in *.md; do st=$(sed -n 's/^Status: //p' "$f"); [ "$st" = open ] || continue; ok=1; for b in $(sed -n 's/^Blocked by: //p' "$f" | tr -d ','); do [ "$b" = none ] && continue; grep -q '^Status: resolved' "$b"-*.md || ok=0; done; [ $ok = 1 ] && echo "$f"; done`
-At this checkpoint it prints the four open research tickets, *Catalog model* and *Admin panel*.
+At this checkpoint it prints three research tickets (payment gateways, tax and law, shipping and addresses) and three grilling tickets (*Catalog model*, *Phone-OTP policy*, *Admin panel*).
 
 ## Phase status
 
 | Phase | Gate | Status |
 |---|---|---|
 | 0 Skills + workspace | 0 | **complete; Gate 0 approved 2026-10-22** |
-| 1 Discovery + spec | 1 | **in progress** (map charted; 1 of 18 tickets resolved) |
+| 1 Discovery + spec | 1 | **in progress** (map charted; 2 of 18 tickets resolved) |
 | 2 Architecture + API contracts | 2 | not started |
 | 3 Design system + UX prototype | 3 | not started |
 | 4 Frontend with mock adapters | 4 | not started |
@@ -41,7 +41,7 @@ Later approvals already foreseen: Impeccable engine first run and build path (Ga
 
 ## Session log (latest first)
 
-- **2026-10-22, session 2, Phase 1.** Gate 0 approved and recorded (D-006 and D-011 accepted), scanned the tracked files for secrets (none), tagged `gate-0`, pushed and verified on GitHub. Read the Phase 1 skills in full. Ran `wayfinder` in chart-the-map mode: two `grilling` rounds with the owner (8 questions), `GLOSSARY.md` created (15 terms), map and 18 tickets written, D-015 added. Resolved the research ticket *Torob and Emalls*. Details and commands: `report.md`.
+- **2026-10-22, session 2, Phase 1.** Gate 0 approved and recorded (D-006 and D-011 accepted), scanned the tracked files for secrets (none), tagged `gate-0`, pushed and verified on GitHub. Read the Phase 1 skills in full. Ran `wayfinder` in chart-the-map mode: two `grilling` rounds with the owner (8 questions), `GLOSSARY.md` created (15 terms), map and 18 tickets written, D-015 added. Resolved the research tickets *Torob and Emalls* and *SMS providers*. Details and commands: `report.md`.
 - **2026-10-22, session 1 continued.** After Gate 0 was presented: deploy key, GitHub access, public repo decision, stack version evidence (`TECH_STACK.md`, D-013, D-014). Report: `git show gate-0:report.md`.
 - **2026-10-22, session 1, Phase 0.** Inspected the environment; fetched the six required skill repositories at pinned SHAs; vendored them unmodified with a lock file and sha256 manifest; wrote the skill index, usage map, `AGENTS.md`, `CODING_STANDARDS.md`, `DECISIONS.md`, `docs/agents/`, this file and the report; initialised git.
 

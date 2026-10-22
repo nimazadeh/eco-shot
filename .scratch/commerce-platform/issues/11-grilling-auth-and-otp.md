@@ -16,6 +16,7 @@ Blocked by: 02
 ## Context
 
 - Replaces the password guidance in Addy's security skill with an OTP threat model (see `skills/SKILL_USAGE_MAP.md` section 7).
+- From the SMS providers research: templates are approved per provider and fixed in wording; providers rate-limit by IP and some require an IP allowlist; only SMS.ir documents a sandbox; the regulator rule for verification messages is unconfirmed; Kavenegar's key sits in the URL, so URLs must not be logged. Voice OTP is available at Kavenegar and Ghasedak.
 
 ## Inputs
 
