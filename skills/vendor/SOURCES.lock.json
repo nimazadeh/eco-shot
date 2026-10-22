@@ -1,0 +1,306 @@
+{
+  "schema": 1,
+  "sources": [
+    {
+      "id": "addyosmani-agent-skills",
+      "repo": "https://github.com/addyosmani/agent-skills",
+      "sha": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+      "commit_date": "2026-10-13T16:21:06-04:00",
+      "commit_subject": "chore(release): bump plugin manifests to 0.6.13",
+      "version": "0.6.13 (plugin.json)",
+      "license": "MIT",
+      "license_files": [
+        "LICENSE"
+      ],
+      "license_note": "Copyright (c) 2025 Addy Osmani, per LICENSE.",
+      "fetched_on": "2026-10-22",
+      "fetched_with": "git clone --depth 1",
+      "local_path": "skills/vendor/addyosmani-agent-skills",
+      "retained": [
+        "skills",
+        "references",
+        "agents",
+        ".claude/commands",
+        "docs",
+        "README.md",
+        "AGENTS.md",
+        "CLAUDE.md",
+        "CONTRIBUTING.md",
+        "LICENSE",
+        "plugin.json",
+        ".claude-plugin",
+        ".codex-plugin"
+      ],
+      "excluded": [
+        {
+          "path": ".git",
+          "reason": "nested git metadata stripped"
+        },
+        {
+          "path": "evals/",
+          "reason": "upstream contributor tooling (routing evals); not skill instructions"
+        },
+        {
+          "path": "scripts/",
+          "reason": "upstream contributor tooling (skill linter, validators, eval runner); not used by any required skill"
+        },
+        {
+          "path": "hooks/",
+          "reason": "Claude Code session hooks; no required skill depends on them"
+        },
+        {
+          "path": "commands/",
+          "reason": "Antigravity TOML wrappers duplicating .claude/commands/ (retained)"
+        },
+        {
+          "path": ".gemini/",
+          "reason": "Gemini CLI TOML wrappers duplicating .claude/commands/"
+        },
+        {
+          "path": ".agents/",
+          "reason": "Codex marketplace registration only"
+        },
+        {
+          "path": ".github/",
+          "reason": "upstream CI and issue templates"
+        },
+        {
+          "path": ".gitattributes",
+          "reason": "upstream git config"
+        },
+        {
+          "path": ".gitignore",
+          "reason": "upstream git config"
+        }
+      ],
+      "files_copied": 78,
+      "modified": false
+    },
+    {
+      "id": "addyosmani-web-quality-skills",
+      "repo": "https://github.com/addyosmani/web-quality-skills",
+      "sha": "afa8da942115f2961fdbfa80807ea0b232ff6c00",
+      "commit_date": "2026-08-24T14:07:33-07:00",
+      "commit_subject": "Merge pull request #19 from addyosmani/codex/web-quality-skills-v2",
+      "version": "skills metadata version 2.0 (SKILL.md frontmatter)",
+      "license": "MIT",
+      "license_files": [
+        "LICENSE"
+      ],
+      "license_note": "Copyright (c) 2026 Addy Osmani, per LICENSE.",
+      "fetched_on": "2026-10-22",
+      "fetched_with": "git clone --depth 1",
+      "local_path": "skills/vendor/addyosmani-web-quality-skills",
+      "retained": [
+        "skills",
+        "docs",
+        "README.md",
+        "AGENTS.md",
+        "CLAUDE.md",
+        "CHANGELOG.md",
+        "LICENSE",
+        ".claude-plugin"
+      ],
+      "excluded": [
+        {
+          "path": ".git",
+          "reason": "nested git metadata stripped"
+        },
+        {
+          "path": ".agents/",
+          "reason": "Codex marketplace registration only"
+        },
+        {
+          "path": "codex/",
+          "reason": "Codex plugin wrapper (contains a symlink to skills/)"
+        },
+        {
+          "path": ".gemini/",
+          "reason": "Gemini wrapper (contains a symlink to skills/)"
+        },
+        {
+          "path": "gemini-extension.json",
+          "reason": "Gemini extension manifest"
+        },
+        {
+          "path": ".gitignore",
+          "reason": "upstream git config"
+        }
+      ],
+      "files_copied": 25,
+      "modified": false
+    },
+    {
+      "id": "anthropics-skills",
+      "repo": "https://github.com/anthropics/skills",
+      "sha": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
+      "commit_date": "2026-10-09T18:45:49Z",
+      "commit_subject": "Update claude-api skill: dynamic workflows and the four workflow quickstarts (#1995)",
+      "version": null,
+      "license": "Apache-2.0 (skills/webapp-testing/LICENSE.txt)",
+      "license_files": [
+        "skills/webapp-testing/LICENSE.txt"
+      ],
+      "license_note": "The repository has no root LICENSE. Each skill carries its own license; webapp-testing ships the Apache License 2.0 text (SKILL.md frontmatter: 'Complete terms in LICENSE.txt'). The README states that most skills are Apache 2.0 and that docx/pdf/pptx/xlsx are source-available (not vendored here).",
+      "fetched_on": "2026-10-22",
+      "fetched_with": "git clone --depth 1",
+      "local_path": "skills/vendor/anthropics-skills",
+      "retained": [
+        "skills/webapp-testing",
+        "README.md"
+      ],
+      "excluded": [
+        {
+          "path": ".git",
+          "reason": "nested git metadata stripped"
+        },
+        {
+          "path": "skills/ (all other 18 skills)",
+          "reason": "not requested (only webapp-testing is required); several are source-available, not open source"
+        },
+        {
+          "path": "THIRD_PARTY_NOTICES.md",
+          "reason": "notices for dependencies of other skills in the repo (imageio, ffmpeg, ...); webapp-testing bundles no third-party code"
+        },
+        {
+          "path": "spec/",
+          "reason": "Agent Skills spec stub, not needed"
+        },
+        {
+          "path": "template/",
+          "reason": "skill template, not needed"
+        },
+        {
+          "path": ".claude-plugin/",
+          "reason": "plugin manifest for the whole repo"
+        },
+        {
+          "path": ".gitignore",
+          "reason": "upstream git config"
+        }
+      ],
+      "files_copied": 7,
+      "modified": false
+    },
+    {
+      "id": "mattpocock-skills",
+      "repo": "https://github.com/mattpocock/skills",
+      "sha": "5beb35b040e3de97e54fa9e386d7e42d15c295c2",
+      "commit_date": "2026-10-19T16:51:40+01:00",
+      "commit_subject": "chief-of-staff: keep memory in a dated, commit-cited wiki (#1304)",
+      "version": "1.3.1 (package.json)",
+      "license": "MIT",
+      "license_files": [
+        "LICENSE"
+      ],
+      "license_note": "Copyright (c) 2026 Matt Pocock, per LICENSE.",
+      "fetched_on": "2026-10-22",
+      "fetched_with": "git clone --depth 1",
+      "local_path": "skills/vendor/mattpocock-skills",
+      "retained": [
+        "."
+      ],
+      "excluded": [
+        {
+          "path": ".git",
+          "reason": "nested git metadata stripped"
+        },
+        {
+          "path": "AGENTS.md",
+          "reason": "symlink (breaks on Windows checkouts)"
+        }
+      ],
+      "files_copied": 190,
+      "modified": false
+    },
+    {
+      "id": "pbakaus-impeccable",
+      "repo": "https://github.com/pbakaus/impeccable",
+      "sha": "8644175285360c166e57b1e35ecadfbc85ff5209",
+      "commit_date": "2026-10-22T00:10:37-07:00",
+      "commit_subject": "fix(cramped-padding): see through a transparent shell to the children that stack (fixes #963) (#1059)",
+      "version": "4.7.0 (package.json / generated SKILL.md metadata); engine 0.1.16 (ENGINE_VERSION, skill/scripts/VERSION)",
+      "license": "Apache-2.0",
+      "license_files": [
+        "LICENSE",
+        "NOTICE.md"
+      ],
+      "license_note": "Apache License 2.0 (LICENSE). NOTICE.md attributes skill/reference/ios.md and android.md to ehmo/platform-design-skills (MIT). skill/SKILL.src.md frontmatter also states 'license: Apache 2.0'.",
+      "fetched_on": "2026-10-22",
+      "fetched_with": "git clone --depth 1",
+      "local_path": "skills/vendor/pbakaus-impeccable",
+      "retained": [
+        "skill",
+        "LICENSE",
+        "NOTICE.md",
+        "README.md",
+        "AGENTS.md",
+        "ENGINE_VERSION"
+      ],
+      "excluded": [
+        {
+          "path": ".git",
+          "reason": "nested git metadata stripped"
+        },
+        {
+          "path": ".agents/ .agent/ .claude/ .cursor/ .gemini/ .github/ .grok/ .hermes/ .kiro/ .omp/ .opencode/ .pi/ .qoder/ .rovodev/ .trae/ .trae-cn/ .veto/ .vibe/ .dsh/ .codex/ .cursor-plugin/ .claude-plugin/ plugin/ cursor-plugin/",
+          "reason": "generated per-harness copies of the same skill (upstream AGENTS.md: 'generated distribution artifacts'); skill/ is the source of truth, so vendoring them would duplicate the skill"
+        },
+        {
+          "path": "crates/ cli/ browser-bundle/ extension/ vscode/ ui/ demos/ docs/ scripts/ tests/ Cargo.* rust-toolchain.toml biome.json bun.lock package.json README.npm.md",
+          "reason": "engine source, npm shim, browser extension, site assets and tests; not skill instructions (the engine is a pinned downloaded binary, see skills/vendor notes)"
+        },
+        {
+          "path": "skill/scripts/bin/",
+          "reason": "not present upstream; the engine binary is downloaded on first launcher run (version in skill/scripts/VERSION) and was deliberately NOT fetched in Phase 0"
+        },
+        {
+          "path": "PRODUCT.md, DESIGN.md (repo root)",
+          "reason": "Impeccable's own product/design context for its website; unrelated to this project"
+        }
+      ],
+      "files_copied": 62,
+      "modified": false
+    },
+    {
+      "id": "vercel-labs-agent-skills",
+      "repo": "https://github.com/vercel-labs/agent-skills",
+      "sha": "063bee94c3f4df8453406c830b0a7df0f2860278",
+      "commit_date": "2026-08-28T15:36:07+02:00",
+      "commit_subject": "Merge pull request #328 from vercel-labs/codex/suspense-crossfade-local-wrapper",
+      "version": "react-best-practices 1.0.0 and composition-patterns 1.0.0 (metadata.json, dated January 2026)",
+      "license": "MIT (declared in README.md and in both SKILL.md frontmatters)",
+      "license_files": [],
+      "license_note": "No LICENSE file exists in the repository at this SHA; the MIT declaration is in README.md ('## License: MIT') and in each SKILL.md frontmatter ('license: MIT'). No license text was fabricated.",
+      "fetched_on": "2026-10-22",
+      "fetched_with": "git clone --depth 1",
+      "local_path": "skills/vendor/vercel-labs-agent-skills",
+      "retained": [
+        "skills/react-best-practices",
+        "skills/composition-patterns",
+        "README.md",
+        "AGENTS.md"
+      ],
+      "excluded": [
+        {
+          "path": ".git",
+          "reason": "nested git metadata stripped"
+        },
+        {
+          "path": "skills/ (other 7 skills + *.zip archives)",
+          "reason": "not requested: deploy-to-vercel, react-native-skills, react-view-transitions, vercel-cli-with-tokens, vercel-optimize, web-design-guidelines, writing-guidelines"
+        },
+        {
+          "path": "packages/, scripts/, package.json, package-lock.json, skills.sh.json, .github/",
+          "reason": "upstream build/CI tooling for the skills repository"
+        },
+        {
+          "path": ".gitignore",
+          "reason": "upstream git config"
+        }
+      ],
+      "files_copied": 92,
+      "modified": false
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+# Repository text is stored with LF.
+* text=auto eol=lf
+
+# Windows batch files need CRLF to behave reliably (labels, goto).
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+# Shell scripts must stay LF even when checked out on Windows.
+*.sh text eol=lf
+
+# Vendored third-party skills: keep bytes exactly as fetched so the sha256 manifest
+# (skills/vendor/CHECKSUMS.sha256) stays valid on every OS and under any autocrlf setting.
+# This rule comes last so it overrides the rules above for everything under skills/vendor/.
+skills/vendor/** -text

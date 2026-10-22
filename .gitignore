@@ -1,0 +1,24 @@
+# Secrets and local environment (the owner's PostgreSQL credential lives only in .env.local)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Dependencies and build output
+node_modules/
+.next/
+out/
+dist/
+build/
+coverage/
+*.tsbuildinfo
+
+# Logs and OS files
+*.log
+npm-debug.log*
+.DS_Store
+Thumbs.db
+
+# Transient agent scratch (ticket files under .scratch/<feature>/ ARE tracked)
+.scratch/_tmp/
