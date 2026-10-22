@@ -26,7 +26,7 @@ Evidence labels: **[F]** read on the provider's official page; **[E]** search ex
 
 - **Postal code (C3 [E]).** Ten digits. The first five digits identify the geographic area, the sixth the building row within it, and the last four the place within the building. The same site says the code is unique per place and assigned by Iran Post under the national-number and postal-code law.
 - **Provinces and cities (C5).** There are 31 provinces. Wikipedia gives, at the end of 1401, 476 counties, 1,170 districts, 1,431 cities and 2,736 rural districts [S]. The Interior Ministry's Office of Country Divisions is the owner of the list [E]; I did not obtain an official dataset with codes. Tipax publishes the cities it serves through its API [F].
-- **Mobile numbers (C6 [F]).** Kavenegar documents that it accepts a recipient in four forms: `09121234567`, `00989121234567`, `+989121234567` and `9121234567`. IDPay documents the buyer's phone as 11 characters in three forms such as `9382198592`, `09382198592` and `989382198592`. I found no official numbering-plan document.
+- **Mobile numbers (C6 [F]).** Kavenegar documents that it accepts a recipient in four forms: `09` followed by nine digits, `0098` followed by ten digits, `+98` followed by ten digits, and the bare ten digits that start with `9`. IDPay documents the buyer's phone as 11 characters in three forms: ten digits starting with `9`, the same with a leading `0`, and the same with a leading `98`. (Example numbers from their docs are deliberately not copied here.) I found no official numbering-plan document.
 - **National ID.** I found no official specification of the format or checksum. Whether the shop needs it at all is a decision for the checkout ticket.
 
 ## Docs needed (unresolved; do not guess)
