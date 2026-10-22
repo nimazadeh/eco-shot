@@ -81,3 +81,11 @@ The project decision log. Every entry: what was decided, why, and how to reverse
 - **Evidence (2026-10-22; table and method in `TECH_STACK.md`):** the newest versions do not all work together. TypeScript 7.0.2 is refused by npm next to typescript-eslint 8.72.0 (peer `<6.1.0`, also for its canary). ESLint 10.13.0 is outside the declared peer range of three plugins that `eslint-config-next` 16.4.2 depends on. Node 26 is "Current", not LTS. PostgreSQL 19 and Drizzle 1.0 are release candidates. The newest set that resolved cleanly under Node 24.22.1 and npm 11.19.1 is TypeScript 6.0.3, ESLint 9.39.5, Next.js 16.4.2, React 19.3.1, Tailwind 4.3.3, Drizzle 0.45.4 and Kit 0.31.11, Zod 4.6.7, Vitest 5.0.5 and Playwright 1.64.1. That is a resolver test only: nothing was built or run.
 - **Decided:** use that set and upgrade each piece the moment its blocker clears, re-checked at the start of Phase 2 and before each install. Not chosen: pinning the absolute newest numbers (TypeScript 7.0.2 without typescript-eslint, ESLint 10 with overridden peers, Node 26, Drizzle 1.0 RC). The version pins themselves are still approved at Gate 2.
 - **Reverse:** change the pins in `TECH_STACK.md` at Gate 2, or later through a new decision.
+
+## Phase 1 (2026-10-22)
+
+### D-015: Phase 1 product decisions live in the wayfinder map and its tickets
+- **Status:** accepted.
+- **Why:** Matt's `wayfinder` keeps each decision in exactly one place, its ticket, and the map only gists and links it. `DECISIONS.md` therefore records workspace, process and stack decisions, and points to `.scratch/commerce-platform/map.md` for product decisions. `PROJECT_SPEC.md` consolidates them at Gate 1.
+- **Local adaptations (also in the map's Notes):** one grilling ticket per session; research tickets run inline one after another (no sub-agent tool), with findings kept in `.scratch/commerce-platform/research/` on `main`; a ticket's `Type:` line is its `wayfinder:<type>` label.
+- **Reverse:** none needed.
