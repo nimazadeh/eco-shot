@@ -16,6 +16,7 @@ Blocked by: 06, 07
 ## Context
 
 - Terms defined so far: Code stock, Digital code.
+- From the tax and law research: selling stock that is not there triggers an immediate-refund duty (article 39), which makes reservation and oversell rules a legal as well as a business matter.
 
 ## Inputs
 

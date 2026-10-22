@@ -17,6 +17,7 @@ Blocked by: 04, 07
 
 - Refunds are done by staff outside the system at first (owner decision); the system records them.
 - From the Torob and Emalls research: Torob's terms require sending the order number and an exact invoice to the buyer's email and mobile after ordering, tracking by order number on the shop's site, dispatch within 3 business days by default, and answering order follow-ups and complaints. Decide the invoice channel (SMS link, email, both).
+- From the tax and law research: physical goods carry a 7 working day withdrawal right counted from delivery, the exact amount is refunded and the buyer pays only the return shipping (articles 37 and 38); wrong goods go back at the supplier's cost (article 41); out of stock after payment means an immediate refund (article 39).
 
 ## Inputs
 

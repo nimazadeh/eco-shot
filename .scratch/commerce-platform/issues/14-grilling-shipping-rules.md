@@ -16,6 +16,7 @@ Blocked by: 05
 ## Context
 
 - Nationwide fee table plus store pickup; staff enter tracking by hand; no carrier integration in V1 (owner decision).
+- From the shipping and address research: 31 provinces; only Tipax has public API docs and a test platform, which matters for a later carrier integration; an official city dataset was not obtained.
 
 ## Inputs
 

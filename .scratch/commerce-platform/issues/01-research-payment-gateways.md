@@ -1,7 +1,7 @@
 # Payment gateways: which Iranian gateways fit V1, and what do their official docs say?
 
 Type: research
-Status: open
+Status: resolved
 Blocked by: none
 
 ## Question
@@ -30,3 +30,15 @@ For the main Iranian online payment gateways, what do their **official** sites a
 ## Done when
 
 The findings file has a citation per claim and a "docs needed" list. The answer lists the facts that the dependent tickets wait on.
+
+## Answer
+
+Findings with a citation and an evidence label per claim: [research/payment-gateways.md](../research/payment-gateways.md) (official docs read 2026-10-22).
+
+- **Zarinpal, IDPay, Zibal and Pay.ir share one flow:** start a payment, redirect the buyer, the buyer returns to a callback URL, the shop verifies server to server. All are Rial-native; only Zarinpal offers Toman as an option.
+- **A callback proves nothing.** No gateway documents a signature. Verify with the amount from the order; Zarinpal answers a repeat verify with "already verified" (101), IDPay returns the money to the payer if the shop never verifies.
+- **Sandboxes:** Zarinpal (switch the host) and IDPay (a header; address and IP checks are off in sandbox). Zibal and Pay.ir not confirmed.
+- **IP and domain:** Zarinpal requires the merchant's main server IP to be registered; IDPay is sensitive to website address and IP outside the sandbox. A stable outgoing IP and the final domain are needed before activation.
+- **Ceilings:** IDPay and Pay.ir document 500,000,000 Rials per payment (50,000,000 Toman). Expensive electronics may exceed it.
+- **Refunds:** IDPay documents no refund endpoint; Zarinpal lists a reverse method (details unread). This fits the owner's manual-refund choice.
+- **Docs needed:** Zibal's full docs, the bank gateways' documents (contract-gated), Shaparak's official list, whether servers outside Iran may call each API, fees and settlement, PayPing and NextPay.

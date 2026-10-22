@@ -17,6 +17,7 @@ Blocked by: 01, 03, 04
 - Writes the explicit Rial/Toman rule that `TECH_STACK.md` must hold.
 - Waits for the facts from the payment gateways, Torob and Emalls, and tax and law research.
 - From the Torob and Emalls research: Torob's Product API v3 takes integer Toman and wants one all-in price per option with shipping as the only checkout extra. Emalls does not state its price unit.
+- From the payment gateways research: every documented gateway is Rial-native (Zarinpal offers Toman as an option) and IDPay and Pay.ir cap one payment at 500,000,000 Rials. From the tax and law research: the VAT law sets 9 percent, a 1403 notice says 10 percent, and the 1405 rate is unconfirmed; decide display rules provisionally.
 
 ## Inputs
 

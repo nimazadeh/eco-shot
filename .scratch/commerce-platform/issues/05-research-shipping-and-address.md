@@ -1,7 +1,7 @@
 # Shipping and addresses: carriers, address data and phone formats for Iran
 
 Type: research
-Status: open
+Status: resolved
 Blocked by: none
 
 ## Question
@@ -26,3 +26,13 @@ From official sources:
 ## Done when
 
 The findings file has a citation per claim and a "docs needed" list. The answer lists the facts that the dependent tickets wait on.
+
+## Answer
+
+Findings with a citation and an evidence label per claim: [research/shipping-and-address.md](../research/shipping-and-address.md).
+
+- **Carriers:** only **Tipax** has public API docs with a test platform (token auth, cities, address book, orders, tracking-style order management). Mahex works by contract with a panel and no public API docs were found; Iran Post has address-service APIs but no public shipping-order API docs were found; Chapar has no official page.
+- **Postal code:** ten digits (five for the area, one for the building row, four for the place).
+- **Provinces:** 31; an official dataset with codes was not obtained.
+- **Phone input:** providers accept four spellings (`09...`, `0098...`, `+98...`, `9...`); no official numbering plan was fetched. No official national ID specification was found.
+- **Docs needed:** shipping APIs of Iran Post, Mahex and Chapar; an official province and city dataset; Iran Post's postal-code page; the numbering plan and national ID checksum (if needed at all); carrier prices.

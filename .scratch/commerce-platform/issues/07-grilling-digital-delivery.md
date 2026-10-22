@@ -16,6 +16,7 @@ Blocked by: 06
 
 - The owner chose automatic delivery of both codes and files.
 - Terms already defined: Digital code, Code stock, Downloadable file, Digital delivery. Consult Addy `security-and-hardening` for abuse cases.
+- From the tax and law research: if the code stock runs out after payment, article 39 of the Electronic Commerce Law requires an immediate refund unless the buyer agrees to wait. Whether delivered digital codes and files fall under the withdrawal exceptions is not stated in the law or regulation (see the accountant and lawyer questionnaire); decide provisionally.
 
 ## Inputs
 
