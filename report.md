@@ -45,7 +45,8 @@ Phase 0 only: inspect the workspace and agent capabilities, read the required sk
 | Impeccable check | Diffed `skill/agents/*.md` against upstream's generated `reference/degraded/*.md` | Same text with frontmatter stripped plus a two-line "running inline" preface |
 | Generate | `python3 gen_index.py` (temporary) writing `skills/SKILL_INDEX.md` from the vendored frontmatter | Wrote the index; 38 + 25 + 6 + 1 + 2 skill rows plus Impeccable's commands and roles |
 | Pointer check | Script resolving every path referenced by `AGENTS.md`, `PROGRESS.md`, `report.md`, `DECISIONS.md`, `CODING_STANDARDS.md`, the index, the usage map and `docs/` | See section 6 |
-| Git | `git init`, add, initial commit | See section 6 |
+| Git | `git init -b main`, `git add -A`, `git commit` | Initial commit `96c9b17`, 469 files, clean tree |
+| Fresh clone | `git clone /home/user /tmp/verify-clone`, then `sha256sum -c CHECKSUMS.sha256` in the clone | **PASS**: 454 of 454 |
 
 Revisions fetched (full SHAs in `skills/vendor/SOURCES.lock.json`): mattpocock/skills `5beb35b` (2026-10-19, v1.3.1, MIT); addyosmani/agent-skills `aeac41d` (2026-10-13, v0.6.13, MIT); addyosmani/web-quality-skills `afa8da9` (2026-08-24, MIT); anthropics/skills `dbd4588` (2026-10-09, Apache-2.0 for `webapp-testing`); vercel-labs/agent-skills `063bee9` (2026-08-28, MIT declared in README, no LICENSE file); pbakaus/impeccable `8644175` (2026-10-22, v4.7.0, Apache-2.0).
 
@@ -83,7 +84,7 @@ Each unread file must be read in full at first use and logged; the index records
 
 - **Pointer check: PASS.** 11 documents, 141 referenced paths, all exist (documents planned for later phases, such as `PROJECT_SPEC.md`, are whitelisted as not yet created).
 - **Cold-read proxy: PASS (5 of 5 mechanical checks).** The session-start chain is ordered in `AGENTS.md`; `PROGRESS.md` and `report.md` agree on phase and gate state; the next step is derivable and identical in both (`wayfinder`, Phase 1); all 10 phases are tracked; no application source files and no `.env` files exist.
-- **Git:** GIT_RESULT_PLACEHOLDER
+- **Git:** initialised on branch `main`; initial commit `96c9b17` (469 tracked files, working tree clean afterwards). A fresh clone into a temporary directory re-verified the checksum manifest: **PASS** (454 of 454), which also proves `.gitattributes` keeps vendored bytes intact. Executable bits on helper scripts are preserved (mode 100755). `.git/config` is not persisted between sessions, so later commits need the identity flags shown in `PROGRESS.md`. This report was committed in a second commit that records these results.
 
 ## 7. Issues and blockers (exact)
 
