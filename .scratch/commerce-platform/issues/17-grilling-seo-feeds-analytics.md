@@ -14,6 +14,7 @@ Blocked by: 03, 08
 ## Context
 
 - Consult web-quality `seo` and its `references/STRUCTURED-DATA.md` when resolving this ticket.
+- From the Torob and Emalls research: Torob has a written API (Product API v3) and crawls small shops; Emalls has no public spec for custom shops, so it relies on crawling unless Emalls provides one. Price and availability must be in the server-rendered HTML.
 
 ## Inputs
 

@@ -20,6 +20,7 @@ Decide one cluster at a time, in rounds of up to 4 questions:
 
 - About 5,000 products; staff get a bulk CSV import and export; Persian only.
 - Resolve glossary terms as you go: Product, Variant, Category, Brand, SKU, Warranty.
+- From the Torob and Emalls research: variants need a stable unique id and a shared group id, a guarantee (warranty) string, a specification dictionary, and main images of at least 900x900. Consider a per-product "exclude from price-comparison feeds" flag (Torob prohibits some items a digital and electronics store might sell, such as antivirus software).
 
 ## Inputs
 

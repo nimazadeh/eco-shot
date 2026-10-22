@@ -16,6 +16,7 @@ Blocked by: 04, 07
 ## Context
 
 - Refunds are done by staff outside the system at first (owner decision); the system records them.
+- From the Torob and Emalls research: Torob's terms require sending the order number and an exact invoice to the buyer's email and mobile after ordering, tracking by order number on the shop's site, dispatch within 3 business days by default, and answering order follow-ups and complaints. Decide the invoice channel (SMS link, email, both).
 
 ## Inputs
 

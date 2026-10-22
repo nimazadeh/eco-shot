@@ -16,6 +16,7 @@ Blocked by: 01, 02
 ## Context
 
 - Use the stricter of the two performance budget sets until measured (`skills/SKILL_USAGE_MAP.md` section 3).
+- From the Torob and Emalls research: product price and availability must be readable with JavaScript disabled (Torob's terms).
 
 ## Inputs
 

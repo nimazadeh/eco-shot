@@ -1,23 +1,27 @@
 # PROGRESS
 
-_Last updated: 2026-10-22, session 2 (Gate 0 approved; Phase 1 starting)._
+_Last updated: 2026-10-22, session 2 (Phase 1: map charted, first research ticket resolved)._
 
 ## Where we are
 
-**Gate 0 was approved by the owner on 2026-10-22** (reply: "Gate 0 agree go to phase 1 start"; option 1, approve as is, which also confirms D-006 and D-011). Phase 0 is closed. **Phase 1 (discovery + spec) starts now.** No application code exists.
+**Phase 1 (discovery + spec) is in progress.** Gate 0 was approved on 2026-10-22 (annotated tag `gate-0`). No application code exists. Everything is on GitHub (`main`, public repository).
 
-The GitHub deploy key is registered and authenticated (`ssh -T` greeted `nimazadeh/eco-shot` at 15:44 UTC). The first push follows the commit tagged `gate-0`. Decided earlier on 2026-10-22: keep the repository public (D-013), tickets stay local markdown (D-006), newest stable set that works together (D-014).
+The decision map is charted: `.scratch/commerce-platform/map.md` with 18 tickets in `.scratch/commerce-platform/issues/` (5 research, 12 grilling, 1 task). Resolved so far: *Torob and Emalls* (research; findings in `.scratch/commerce-platform/research/torob-emalls.md`). The owner answered two scope rounds (digital delivery, payments, shipping, languages, scale, existing data, customer features, team); the answers are in the map's Notes. `GLOSSARY.md` has 15 terms.
 
 ## Next smallest task
 
-**Phase 1, session 2:** run Matt Pocock's `wayfinder` in "chart the map" mode (`skills/vendor/mattpocock-skills/skills/engineering/wayfinder/SKILL.md`, with `grilling` and `domain-modeling`). Name the destination (an approved `PROJECT_SPEC.md` at Gate 1), grill breadth-first with `ask_user`, and write `.scratch/commerce-platform/map.md` plus the first decision tickets under `.scratch/commerce-platform/issues/`. Seed topics from the brief (not decisions): payment gateway adapter(s), SMS provider(s), shipping options, digital-product delivery, inventory model, Rial/Toman rule, RBAC roles, CMS scope, Torob and Emalls feed requirements (official docs needed), OTP policy. Facts come from primary sources that I look up; decisions come from the owner's answers.
+**Next session:** resolve the remaining research tickets inline and in this order (they are AFK, so the one-ticket-per-session rule does not apply to them): *Payment gateways*, *SMS providers*, *Tax and consumer law*, *Shipping and addresses*. Follow `research` (primary sources only, cite each claim, write `.scratch/commerce-platform/research/<slug>.md`). To work a ticket: set `Status: claimed` first; resolve it by appending an `## Answer` and setting `Status: resolved`; add a one-line gist to the map's "Decisions so far"; pass useful facts into the context of dependent tickets. Then, with the owner, resolve **one** grilling ticket: *Catalog model* or *Admin panel roles* (both are unblocked); the owner may choose.
+
+Frontier command, run in `.scratch/commerce-platform/issues/`:
+`for f in *.md; do st=$(sed -n 's/^Status: //p' "$f"); [ "$st" = open ] || continue; ok=1; for b in $(sed -n 's/^Blocked by: //p' "$f" | tr -d ','); do [ "$b" = none ] && continue; grep -q '^Status: resolved' "$b"-*.md || ok=0; done; [ $ok = 1 ] && echo "$f"; done`
+At this checkpoint it prints the four open research tickets, *Catalog model* and *Admin panel*.
 
 ## Phase status
 
 | Phase | Gate | Status |
 |---|---|---|
 | 0 Skills + workspace | 0 | **complete; Gate 0 approved 2026-10-22** |
-| 1 Discovery + spec | 1 | **in progress** (session 2) |
+| 1 Discovery + spec | 1 | **in progress** (map charted; 1 of 18 tickets resolved) |
 | 2 Architecture + API contracts | 2 | not started |
 | 3 Design system + UX prototype | 3 | not started |
 | 4 Frontend with mock adapters | 4 | not started |
@@ -31,15 +35,15 @@ The GitHub deploy key is registered and authenticated (`ssh -T` greeted `nimazad
 
 1. Before Gate 2: tell me the Node and PostgreSQL versions installed on the Windows machine (`node -v`, `psql --version`).
 
-Decided on 2026-10-22 (no longer open): keep the repository public (D-013); tickets stay local markdown (D-006); newest stable set that works together (D-014); digest in `docs/owner-brief.md` confirmed (D-011); the partial reads listed in `report.md` section 5 stay as the default: each file is read in full at its skill's first use.
+Nothing else is pending. Decided on 2026-10-22: keep the repository public (D-013); tickets stay local markdown (D-006); newest stable set that works together (D-014); the brief digest is confirmed (D-011); scope answers from rounds 1 and 2 (map Notes).
 
 Later approvals already foreseen: Impeccable engine first run and build path (Gate 3); stack versions (Gate 2, `TECH_STACK.md` section 4); any Docker use; any destructive database action.
 
 ## Session log (latest first)
 
-- **2026-10-22, session 2, Phase 1.** Gate 0 approved. Deploy key authenticated. Recorded the approval (D-006 and D-011 accepted), scanned the tracked files for secrets (none), tagged `gate-0` and pushed. Read the session-start files and the Phase 1 skills in full (`wayfinder`, `grilling`, `domain-modeling` with its two format docs, `grill-with-docs`, `research`, `to-questionnaire`, `to-spec`). Started charting the map.
-- **2026-10-22, session 1 continued.** After Gate 0 was presented: generated the deploy key and pinned GitHub's host keys; confirmed SSH reachability; found the repo public and empty; committed the `.ssh/` ignore rule (`ccdfae4`); checked stack versions at official sources and resolver-tested them under Node 24.22.1 (`TECH_STACK.md`, D-014); corrected the read depth of Impeccable `critique.md` to about 97%; replaced `report.md`. The owner decided: public repo, local-markdown tickets, newest stable set that works together.
-- **2026-10-22, session 1, Phase 0.** Inspected the environment; fetched the six required skill repositories at pinned SHAs; read their instructions (depth per file in `skills/SKILL_INDEX.md`); vendored the retained paths unmodified with a lock file and sha256 manifest; wrote the skill index, usage map, `AGENTS.md`, `CODING_STANDARDS.md`, `DECISIONS.md`, the setup-skill docs under `docs/agents/`, this file and `report.md`; initialised git.
+- **2026-10-22, session 2, Phase 1.** Gate 0 approved and recorded (D-006 and D-011 accepted), scanned the tracked files for secrets (none), tagged `gate-0`, pushed and verified on GitHub. Read the Phase 1 skills in full. Ran `wayfinder` in chart-the-map mode: two `grilling` rounds with the owner (8 questions), `GLOSSARY.md` created (15 terms), map and 18 tickets written, D-015 added. Resolved the research ticket *Torob and Emalls*. Details and commands: `report.md`.
+- **2026-10-22, session 1 continued.** After Gate 0 was presented: deploy key, GitHub access, public repo decision, stack version evidence (`TECH_STACK.md`, D-013, D-014). Report: `git show gate-0:report.md`.
+- **2026-10-22, session 1, Phase 0.** Inspected the environment; fetched the six required skill repositories at pinned SHAs; vendored them unmodified with a lock file and sha256 manifest; wrote the skill index, usage map, `AGENTS.md`, `CODING_STANDARDS.md`, `DECISIONS.md`, `docs/agents/`, this file and the report; initialised git.
 
 ## Known constraints
 
@@ -48,12 +52,13 @@ Later approvals already foreseen: Impeccable engine first run and build path (Ga
 - No skill loader, no sub-agent tool, no `chrome-devtools` MCP server in this runtime (see `skills/SKILL_USAGE_MAP.md` section 2).
 - Git identity and remotes are not persisted between sessions (`.git/config` is excluded from snapshots). Commit with `git -c user.name="Commerce Platform Agent" -c user.email="agent@localhost.invalid" commit ...` and re-add `origin` (checklist step 4).
 - `~/.ssh/` (private deploy key, config, known_hosts) lives inside the workspace and is included in snapshots; it is gitignored. Never export or share it; re-apply the `chmod` in checklist step 4 after any restore.
+- Research clones and downloads go to `~/.cache/research/` (not snapshotted, not tracked); only findings files under `.scratch/commerce-platform/research/` are kept.
 
 ## Resume checklist (cold start)
 
-1. Read `AGENTS.md` -> this file -> `report.md` -> the specs listed above -> `skills/SKILL_INDEX.md`.
+1. Read `AGENTS.md` -> this file -> `report.md` -> `.scratch/commerce-platform/map.md` -> `skills/SKILL_INDEX.md` (the sections for the skills you will use).
 2. Verify the vendored skills: `cd skills/vendor && sha256sum -c CHECKSUMS.sha256 --quiet && echo OK` (PowerShell variant in `skills/SKILL_INDEX.md` section 9).
 3. `git status` should be clean at the start of a session; if it is not, find out why before editing.
 4. GitHub (D-013): `chmod 700 ~/.ssh && chmod 600 ~/.ssh/config ~/.ssh/eco_shot_deploy_ed25519`; `git remote get-url origin 2>/dev/null || git remote add origin git@github.com:nimazadeh/eco-shot.git`; `ssh -T git@github.com`. A greeting naming `nimazadeh/eco-shot` means the key works; `Permission denied (publickey)` means the owner has not added it (or has removed it).
-5. Before every push, all three must hold: `git status --short` prints nothing; `git ls-files .ssh | wc -l` prints 0; and `K=$(sed -n 5p ~/.ssh/eco_shot_deploy_ed25519); if git grep -q -F -e "$K" $(git rev-list --all); then echo LEAK; else echo clean; fi` prints `clean` (never echo `$K`; line 5 of an unencrypted ed25519 key file holds the secret seed, while line 2 is a header shared by every such key and must not be used). Then `git push origin main`; never `--force`.
+5. Before every push, all three must hold: `git status --short` prints nothing; `git ls-files .ssh | wc -l` prints 0; and `K=$(sed -n 5p ~/.ssh/eco_shot_deploy_ed25519); if git grep -q -F -e "$K" $(git rev-list --all); then echo LEAK; else echo clean; fi` prints `clean` (never echo `$K`; line 5 of an unencrypted ed25519 key file holds the secret seed, while line 2 is a header shared by every such key and must not be used). Then `git push origin main`; never `--force`. Tag each approved gate `gate-N` (annotated) and push the tag.
 6. Do the smallest next task above; checkpoint before about 40 minutes.

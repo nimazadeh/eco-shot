@@ -32,6 +32,8 @@ An owner-approved `PROJECT_SPEC.md` (Gate 1): the one canonical definition of V1
 
 <!-- One line per resolved ticket: [title](issues/NN-slug.md): gist -->
 
+- [Torob and Emalls: what do they officially require, and where are their docs?](issues/03-research-torob-emalls.md): Torob has an official written Product API v3 (JSON, signed JWT, integer Toman) and crawls small shops; Emalls has no public spec for custom shops (robot crawl; WooCommerce plugin only). Both require an Enamad; Torob's terms need price and availability readable without JavaScript.
+
 ## Not yet specified
 
 - **Abuse cases and trust boundaries** across OTP, payments, admin and downloads (Addy `security-and-hardening` at spec time). Sharpens once the authentication, payment and admin-roles tickets resolve.
@@ -40,6 +42,7 @@ An owner-approved `PROJECT_SPEC.md` (Gate 1): the one canonical definition of V1
 - **SMS message catalog and Persian wording.** After the orders and notifications ticket.
 - **V1 release criteria and acceptance checks.** After the tickets above.
 - **Hosting provider and deployment shape.** After the performance, availability and hosting ticket.
+- **Questionnaire for Torob and Emalls support** (`to-questionnaire`): Emalls' written spec for custom shops, Torob's docs location and token process, fees. Sharpens once the SEO and feeds ticket decides what V1 provides.
 
 ## Out of scope
 

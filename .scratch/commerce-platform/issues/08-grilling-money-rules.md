@@ -16,6 +16,7 @@ Blocked by: 01, 03, 04
 
 - Writes the explicit Rial/Toman rule that `TECH_STACK.md` must hold.
 - Waits for the facts from the payment gateways, Torob and Emalls, and tax and law research.
+- From the Torob and Emalls research: Torob's Product API v3 takes integer Toman and wants one all-in price per option with shipping as the only checkout extra. Emalls does not state its price unit.
 
 ## Inputs
 
