@@ -31,8 +31,9 @@ Used by `/wayfinder`. The **map** is a file with one **child** file per ticket.
 
 ## Project mapping (this repo; edit freely, per the setup skill)
 
-- Written in Phase 0 with defaults; the owner confirms or switches the tracker at Gate 0. Re-run the setup procedure (`skills/vendor/mattpocock-skills/skills/engineering/setup-matt-pocock-skills/SKILL.md`) only to switch trackers.
+- Written in Phase 0 with defaults. On 2026-10-22 the owner chose to keep tickets as local markdown when GitHub Issues was offered (Issues would need a separate fine-grained token, because the repo's deploy key cannot manage them). Re-run the setup procedure (`skills/vendor/mattpocock-skills/skills/engineering/setup-matt-pocock-skills/SKILL.md`) only to switch trackers.
 - The product-level spec is `PROJECT_SPEC.md` (canonical, approved at Gate 1). "Publish the spec to the issue tracker" for the product-level spec means writing or updating `PROJECT_SPEC.md`. Feature-level specs go to `.scratch/<feature-slug>/spec.md` and reference it instead of restating it.
 - Phase-level status lives in `PROGRESS.md`. Tickets are not duplicated there, only linked.
 - `.scratch/<feature-slug>/` files are tracked in git. Transient output (HTML reports, drafts) goes to `.scratch/_tmp/`, which is gitignored.
 - Applying the `ready-for-agent` label means writing `Status: ready-for-agent` in the ticket file.
+- The repository is public on GitHub (owner's choice, D-013), so every tracked ticket file is world-readable once pushed. Never put secrets, personal or customer data, or details of unfixed vulnerabilities in tickets.

@@ -11,8 +11,8 @@ Follow-up the owner asked for after Gate 0 was presented: (a) work in GitHub, us
 ## 2. Result in brief
 
 - **Phase 0:** all six sources vendored unmodified under `skills/vendor/` (454 files, lock file, sha256 manifest). Integrity re-checked after this session's edits: **PASS**. Activation is pointer-based because this runtime has no skill loader or sub-agent tool; every adaptation is documented.
-- **GitHub:** SSH works from the sandbox. A dedicated ed25519 deploy key exists and GitHub's host keys are pinned and cross-checked. **Not yet usable:** the owner must add the public key (section 10); GitHub currently answers `Permission denied (publickey)`, which is the expected result before that. The repository `nimazadeh/eco-shot` is **public and empty**. **Nothing has been pushed.**
-- **Versions:** checked on official sites and registries on 2026-10-22 (`TECH_STACK.md`, draft). The newest versions do not all work together: TypeScript 7.0.2 is refused by npm next to typescript-eslint, and ESLint 10.13.0 is outside the peer ranges of three Next.js lint plugins. The newest set that resolved cleanly is in `TECH_STACK.md` section 3. That is a resolver test; nothing was built or run.
+- **GitHub:** SSH works from the sandbox. A dedicated ed25519 deploy key exists and GitHub's host keys are pinned and cross-checked. **Not yet usable:** the owner must add the public key (section 10); GitHub still answers `Permission denied (publickey)`, which is the expected result before that. The repository `nimazadeh/eco-shot` is **public and empty**, and the owner chose to keep it public. **Nothing has been pushed.**
+- **Versions:** checked on official sites and registries on 2026-10-22 (`TECH_STACK.md`, draft). The newest versions do not all work together: TypeScript 7.0.2 is refused by npm next to typescript-eslint, and ESLint 10.13.0 is outside the peer ranges of three Next.js lint plugins. The newest set that resolved cleanly is in `TECH_STACK.md` section 3, and the owner chose it (D-014). That is a resolver test; nothing was built or run.
 - **Correction:** Impeccable `critique.md` was listed as read in full. About 15 lines were never seen. It is now recorded as about 97% (section 5 and `skills/SKILL_INDEX.md`).
 - **Reading depth** is stated per source in section 5; not everything was read in full.
 
@@ -72,7 +72,9 @@ Revisions (full SHAs in `skills/vendor/SOURCES.lock.json`): mattpocock/skills `5
 | Documented commands re-run | PROGRESS.md checklist steps 4 and 5; the `curl` and `jq` line from `TECH_STACK.md` section 5 | Work as written |
 | Integrity after edits | `sha256sum -c CHECKSUMS.sha256` | **PASS**: 454 of 454 |
 | Pointer check | Python over `AGENTS.md`, `PROGRESS.md`, `DECISIONS.md`, `TECH_STACK.md` | 56 path-like references; 14 flagged and all reviewed: 6 are URLs, repo names or a fingerprint, 8 are skill-relative names or upstream paths deliberately mentioned as absent. No broken pointer |
-| Git | `git commit` | `ccdfae4` (`.ssh/` ignore rule). The remaining edits are committed after this report; see `git log` |
+| Git | `git commit` | `ccdfae4` (`.ssh/` ignore rule), `4780554` (D-013, D-014, `TECH_STACK.md`, report). The owner-decision edits are in the commit after those; see `git log` |
+| Owner decisions | `ask_user` with three questions | Keep the repo public; tickets stay local markdown; newest stable set that works together. Recorded in D-006, D-013, D-014, `AGENTS.md`, `docs/agents/issue-tracker.md`, `TECH_STACK.md`, `PROGRESS.md` |
+| Re-test of the key | `ssh -T git@github.com` after the answers | Still `Permission denied (publickey)`, exit 255: the key is not registered yet |
 
 ## 5. What was read (exact depth) and what was not
 
@@ -103,7 +105,7 @@ Each unread file must be read in full at first use and logged; the index records
 | `.ssh/` ignored and untracked | **PASS** (3 of 3 paths ignored; 0 tracked) |
 | Private key absent from history and from the working tree outside `.ssh/` | **PASS** (corrected check with two positive controls) |
 | Deploy-key authentication | **NOT TESTED:** the key is not registered. `Permission denied (publickey)` is the expected current result |
-| Push to GitHub | **NOT RUN:** blocked on the key and on the visibility decision |
+| Push to GitHub | **NOT RUN:** blocked on the owner registering the key |
 | Versions confirmed against official sources | **PASS** with exceptions: 8 of 10 sites matched; Lucide shows no version and Drizzle's page is stale, so those two rely on npm and GitHub |
 | The newest versions work together | **NO:** TypeScript 7.0.2 refused; ESLint 10 needs peer overrides. The newest working set resolved cleanly (resolver only) |
 | Build, runtime or test execution of any stack package | **Not run.** No code exists |
@@ -116,14 +118,14 @@ Each unread file must be read in full at first use and logged; the index records
 ## 7. Issues and blockers (exact)
 
 1. No skill loader (runtime limit). 2. No sub-agent tool: Matt `code-review`, `research`, `improve-codebase-architecture`, `implement-spec`; Addy `/ship` fan-out; Impeccable `critique`, finish reviewer, documenter run sequentially with the disclosures their text requires. 3. No `chrome-devtools` MCP; Playwright and Lighthouse CLI are the fallback, unverified until Phase 4. 4. Impeccable's entry is a template (`SKILL.src.md`) and its verbs need the downloaded engine. 5. Vercel upstream ships no LICENSE file. 6. Reading gaps (section 5). 7. Bash-only helpers need Git Bash or WSL on Windows. 8. Sandbox lacks pnpm, yarn, bun, psql, docker, gh. 9. Long outputs were truncated by the tool several times; affected files were re-read in smaller pieces.
-10. **Deploy key not registered on GitHub** (owner action), so nothing can be pushed. 11. **The repository is public:** the owner decides visibility before any push. 12. A deploy key cannot manage Issues or Pull Requests (D-013). 13. `.git/config` is not persisted, so `origin` must be re-added each session (documented). 14. The newest TypeScript and ESLint cannot be adopted yet (D-014). 15. The sandbox's Node 20.20.2 is end-of-life and its npm 10.8.2 crashes on Vite 8 sets; Node 24 needs a per-session download. 16. Two mistakes of mine this session, both caught and corrected before use: the SSH banner probe and the leak-check line and option error (section 4b).
+10. **Deploy key not registered on GitHub** (owner action), so nothing can be pushed. 11. **The repository is public** (the owner chose to keep it public; see section 8). 12. A deploy key cannot manage Issues or Pull Requests (D-013). 13. `.git/config` is not persisted, so `origin` must be re-added each session (documented). 14. The newest TypeScript and ESLint cannot be adopted yet (D-014). 15. The sandbox's Node 20.20.2 is end-of-life and its npm 10.8.2 crashes on Vite 8 sets; Node 24 needs a per-session download. 16. Two mistakes of mine this session, both caught and corrected before use: the SSH banner probe and the leak-check line and option error (section 4b).
 
 ## 8. Security concerns
 
 - **Third-party instructions are untrusted input.** The agent follows vendored skill text, so a malicious upstream change would be a prompt-injection and supply-chain risk. Mitigation: pinned SHAs, a checksum manifest, no auto-update, owner review on refresh, and `AGENTS.md` owner rules that outrank any skill. Checksums detect local modification, not malice already present at the pinned revision; the pinned text was read as listed in section 5, not audited line by line.
 - **The private deploy key is stored unencrypted in the sandbox workspace** (`~/.ssh/eco_shot_deploy_ed25519`). A passphrase is impossible for unattended use, and `.ssh/` is not an excluded snapshot path, so it is saved with the workspace. Anyone with access to the workspace or its snapshot can push to the repository until the key is deleted on GitHub. Mitigations: one repository only, revocable in seconds, never printed or committed (ignored twice, verified), and `.ssh/` must not be exported or shared. If in doubt, delete the key on GitHub and I generate a new one.
 - **Write access can overwrite history or delete branches.** Rule (D-013): no force-push or deletion without explicit approval. I did not test how GitHub branch protection interacts with deploy keys, so I claim nothing about it.
-- **The repository is public.** A push publishes everything: today docs and third-party skill copies (licenses preserved; Vercel's upstream has only a README declaration), later specs, source, security notes and audit findings. Recommended: private before the first push.
+- **The repository is public** (the owner chose to keep it public). A push publishes everything: today docs and third-party skill copies (licenses preserved; Vercel's upstream has only a README declaration), later specs, source and security notes. Rule (D-013): never push secrets, personal or customer data, or details of unfixed vulnerabilities, so Phase 8 audit findings stay out of the repo until fixed or until the owner explicitly approves. Tracked ticket files are public too.
 - **GitHub host keys** were pinned from two independent official sources; a mismatch would have stopped the work.
 - **The downloaded Node binary** was checked only against a hash file from the same origin (nodejs.org), without GPG verification. It is used only for resolver tests in a scratch folder and is not shipped.
 - **Registry data is trusted as published.** No package code was executed (lockfile-only installs with `--ignore-scripts`).
@@ -133,7 +135,7 @@ Each unread file must be read in full at first use and logged; the index records
 
 ## 9. Remaining work
 
-Phase 0: the owner adds the key and decides visibility, tracker and the "latest" policy; I verify the key, run the pre-push checks and push; the owner decides Gate 0. Then Phases 1 to 9 as in `PROGRESS.md`. For Gate 2: the design tensions in `skills/SKILL_USAGE_MAP.md` section 7 (shared-store rate limiting without Redis, OTP threat model instead of password guidance, IRR versus Toman in structured data, version-sensitive Vercel rules, WCAG 2.2 target, budgets) and the version choices in `TECH_STACK.md` section 4.
+Phase 0: the owner adds the key; I verify it, run the pre-push checks and push; the owner decides Gate 0. Then Phases 1 to 9 as in `PROGRESS.md`. For Gate 2: the design tensions in `skills/SKILL_USAGE_MAP.md` section 7 (shared-store rate limiting without Redis, OTP threat model instead of password guidance, IRR versus Toman in structured data, version-sensitive Vercel rules, WCAG 2.2 target, budgets) and the version choices in `TECH_STACK.md` section 4.
 
 ## 10. Exact next action and approval needed
 
@@ -145,7 +147,7 @@ Phase 0: the owner adds the key and decides visibility, tracker and the "latest"
    - Title: `Arena agent (eco-shot)`
    - Key: `ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBz7BSMmp4MG76IoY6CN4eJxmxW2wLHk2OhGDFHtuqdg arena-agent@eco-shot`
    - Tick **Allow write access**. GitHub should then show the fingerprint `SHA256:rmTZXuXJcJVnBf8/4iODRGTdqg4vzNdBJIKCiTnhJ98`; if it differs, do not trust the key.
-2. Decide: repository visibility (recommended: private first), where tickets live (recommended: local markdown, because a deploy key cannot manage Issues), and how to treat "latest" (recommended: the newest stable set that works together).
+2. Already decided by the owner and recorded: keep the repository public; tickets stay local markdown; newest stable set that works together.
 3. Reply "added". I then run `ssh -T git@github.com`, the pre-push checks and `git push -u origin main`, and report the real result.
 
 **Gate 0 decision (unchanged)**

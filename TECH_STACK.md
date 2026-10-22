@@ -49,7 +49,7 @@ Limits. This proves dependency resolution only. Not tested: `next build` with Ty
 
 ## 4. Choices for the owner at Gate 2
 
-1. **What "latest" means** when the newest version breaks its neighbours (D-014). Recommended: the newest stable set that works together (first row of section 3), upgraded piece by piece as blockers clear.
+1. **What "latest" means** when the newest version breaks its neighbours: **decided 2026-10-22 (D-014)**, the newest stable set that works together (first row of section 3), upgraded piece by piece as blockers clear.
 2. **Node.js:** 24 LTS (recommended), or 26 once it is LTS. The owner's installed Node version is unknown.
 3. **PostgreSQL:** target 18. The owner's installed major is unknown. Changing a local install needs a dump and restore or `pg_upgrade`, so any such change needs the owner's approval.
 4. **Drizzle:** stable 0.45/0.31 now; 1.0 only once it is stable and before Phase 5 starts.
