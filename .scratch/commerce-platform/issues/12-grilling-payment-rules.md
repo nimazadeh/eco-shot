@@ -16,6 +16,7 @@ Blocked by: 01
 
 - Online card payment through a gateway only (owner decision). Read the payment gateways research first.
 - From the payment gateways research: a callback proves nothing, so verify server to server with the amount from the order and treat "already verified" as success; IDPay returns unverified money to the payer; IDPay and Pay.ir cap a payment at 500,000,000 Rials; IDPay documents no refund endpoint.
+- From the digital delivery decisions: a code is assigned only after the gateway verification succeeds; if verification succeeds but no code is left, the line is cancelled and the order shows "refund due".
 
 ## Inputs
 

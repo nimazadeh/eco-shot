@@ -19,6 +19,7 @@ Blocked by: 04, 07
 - From the Torob and Emalls research: Torob's terms require sending the order number and an exact invoice to the buyer's email and mobile after ordering, tracking by order number on the shop's site, dispatch within 3 business days by default, and answering order follow-ups and complaints. Decide the invoice channel (SMS link, email, both).
 - From the tax and law research: physical goods carry a 7 working day withdrawal right counted from delivery, the exact amount is refunded and the buyer pays only the return shipping (articles 37 and 38); wrong goods go back at the supplier's cost (article 41); out of stock after payment means an immediate refund (article 39).
 - From the catalog model decisions: each variant carries a warranty line (provider and months); how a warranty claim is handled is still to decide here.
+- From the digital delivery decisions: order statuses need "refund due" (payment verified but no code left) and a way for buyers to report an invalid code or defective file within 7 days from the order page; staff check, then replace from stock or refund (provisional until the lawyer answers). The "order ready" SMS never contains a code. The support channel is still open here.
 
 ## Inputs
 

@@ -1,27 +1,27 @@
 # PROGRESS
 
-_Last updated: 2026-10-22, session 3 (Phase 1: all research tickets and *Catalog model* resolved)._
+_Last updated: 2026-10-22, session 4 (Phase 1: research, *Catalog model* and *Digital delivery rules* resolved)._
 
 ## Where we are
 
 **Phase 1 (discovery + spec) is in progress.** Gate 0 was approved on 2026-10-22 (annotated tag `gate-0`). No application code exists. Everything is on GitHub (`main`, public repository).
 
-The decision map is charted: `.scratch/commerce-platform/map.md` with 19 tickets in `.scratch/commerce-platform/issues/` (5 research, 12 grilling, 2 tasks). Resolved so far (6 of 19): all five research tickets (*Torob and Emalls*, *SMS providers*, *Payment gateways*, *Tax and consumer law*, *Shipping and addresses*; findings in `.scratch/commerce-platform/research/`) and the decision ticket *Catalog model*. The owner answered two scope rounds (digital delivery, payments, shipping, languages, scale, existing data, customer features, team); the answers are in the map's Notes. `GLOSSARY.md` has 25 terms.
+The decision map is charted: `.scratch/commerce-platform/map.md` with 19 tickets in `.scratch/commerce-platform/issues/` (5 research, 12 grilling, 2 tasks). Resolved so far (7 of 19): all five research tickets (*Torob and Emalls*, *SMS providers*, *Payment gateways*, *Tax and consumer law*, *Shipping and addresses*; findings in `.scratch/commerce-platform/research/`) and the decision tickets *Catalog model* and *Digital delivery rules*. The owner answered two scope rounds (digital delivery, payments, shipping, languages, scale, existing data, customer features, team); the answers are in the map's Notes. `GLOSSARY.md` has 29 terms.
 
 ## Next smallest task
 
-**Next:** resolve **one** grilling ticket per session with the owner (`grilling` and `domain-modeling`; update `GLOSSARY.md` as terms resolve). Unblocked now: *Digital delivery rules* (recommended first, because it unblocks inventory and orders), *Money rules*, *Checkout flow and customer account*, *Phone-OTP policy*, *Payment gateway shortlist and payment rules*, *Shipping fee table*, *Admin panel roles*, *Performance and hosting targets*. Two owner tasks are also open: *Owner accounts and test access* and the *Questionnaire for the owner's accountant and lawyer*. The owner may choose the order; otherwise the first by number.
+**Next:** resolve **one** grilling ticket per session with the owner (`grilling` and `domain-modeling`; update `GLOSSARY.md` as terms resolve). Unblocked now: *Money rules* (recommended first: foundational for checkout and the feeds), *Checkout flow and customer account*, *Orders, cancellations, returns, warranty, support and SMS notifications*, *Phone-OTP policy*, *Payment gateway shortlist and payment rules*, *Shipping fee table*, *Inventory and stock rules*, *Admin panel roles*, *Performance and hosting targets*. Two owner tasks are also open: *Owner accounts and test access* and the *Questionnaire for the owner's accountant and lawyer*. The owner may choose the order; otherwise the first by number.
 
 Frontier command, run in `.scratch/commerce-platform/issues/`:
 `for f in *.md; do st=$(sed -n 's/^Status: //p' "$f"); [ "$st" = open ] || continue; ok=1; for b in $(sed -n 's/^Blocked by: //p' "$f" | tr -d ','); do [ "$b" = none ] && continue; grep -q '^Status: resolved' "$b"-*.md || ok=0; done; [ $ok = 1 ] && echo "$f"; done`
-At this checkpoint it prints ten tickets: eight grilling tickets and the two owner tasks.
+At this checkpoint it prints eleven tickets: nine decision tickets and the two owner tasks.
 
 ## Phase status
 
 | Phase | Gate | Status |
 |---|---|---|
 | 0 Skills + workspace | 0 | **complete; Gate 0 approved 2026-10-22** |
-| 1 Discovery + spec | 1 | **in progress** (map charted; 6 of 19 tickets resolved) |
+| 1 Discovery + spec | 1 | **in progress** (map charted; 7 of 19 tickets resolved) |
 | 2 Architecture + API contracts | 2 | not started |
 | 3 Design system + UX prototype | 3 | not started |
 | 4 Frontend with mock adapters | 4 | not started |
@@ -43,6 +43,7 @@ Later approvals already foreseen: Impeccable engine first run and build path (Ga
 
 ## Session log (latest first)
 
+- **2026-10-22, session 4, Phase 1.** Cold-start checks passed. Resolved the decision ticket *Digital delivery rules* with the owner in two `ask_user` rounds (8 questions), after re-reading Addy `security-and-hardening` in full for abuse cases. Added 4 glossary terms, passed facts into 7 dependent tickets, and unblocked *Orders and after-sales* and *Inventory*. Details: `report.md`.
 - **2026-10-22, session 3, Phase 1.** Cold-start checks passed (454 vendored files, git clean, key works). Resolved the remaining research tickets *Payment gateways*, *Tax and consumer law* and *Shipping and addresses* (findings under `.scratch/commerce-platform/research/`), added the owner task *Questionnaire for the owner's accountant and lawyer*, passed the facts into ten dependent tickets, then resolved the decision ticket *Catalog model* with the owner in three `ask_user` rounds (11 questions) and added 10 glossary terms. Details and commands: `report.md`.
 - **2026-10-22, session 2, Phase 1.** Gate 0 approved and recorded (D-006 and D-011 accepted), scanned the tracked files for secrets (none), tagged `gate-0`, pushed and verified on GitHub. Read the Phase 1 skills in full. Ran `wayfinder` in chart-the-map mode: two `grilling` rounds with the owner (8 questions), `GLOSSARY.md` created (15 terms), map and 18 tickets written, D-015 added. Resolved the research tickets *Torob and Emalls* and *SMS providers*. Details and commands: `report.md`.
 - **2026-10-22, session 1 continued.** After Gate 0 was presented: deploy key, GitHub access, public repo decision, stack version evidence (`TECH_STACK.md`, D-013, D-014). Report: `git show gate-0:report.md`.

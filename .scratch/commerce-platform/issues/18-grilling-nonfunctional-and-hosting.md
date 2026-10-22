@@ -19,6 +19,7 @@ Blocked by: 01, 02
 - From the Torob and Emalls research: product price and availability must be readable with JavaScript disabled (Torob's terms).
 - From the SMS providers research: providers can restrict API calls by source IP (Kavenegar, SMS.ir, Melipayamak), so the production server needs a stable outgoing IP that can be registered.
 - From the payment gateways research: Zarinpal requires the main server IP to be registered and IDPay checks website address and IP outside the sandbox, so the production server needs a stable outgoing IP and a final domain.
+- From the digital delivery decisions: files live on the server's disk outside the public folder (up to 1 GB each), so disk size, backups and restore tests must cover them; reveal and download logs and stored codes need a retention period; codes are stored encrypted (Phase 2 design).
 
 ## Inputs
 

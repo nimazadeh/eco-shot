@@ -58,6 +58,14 @@ _Avoid_: hardware
 A single-use secret value (a license key, gift-card number or voucher) issued to one buyer.
 _Avoid_: key, serial, coupon
 
+**Code batch**:
+One upload of digital codes into a variant's code stock, saved with a note such as the supplier and the date.
+_Avoid_: import, lot
+
+**Reveal**:
+The buyer's action of showing a delivered digital code on the order page. Every reveal is logged.
+_Avoid_: view, open
+
 **Code stock**:
 The loaded, not-yet-sold digital codes of one digital product.
 _Avoid_: key pool
@@ -68,6 +76,14 @@ _Avoid_: attachment, asset
 
 **Digital delivery**:
 Making a digital code or downloadable file available to the buyer once payment succeeds.
+
+**Download link**:
+A short-lived link, valid for one hour, created when the signed-in buyer clicks download on a downloadable file.
+_Avoid_: permanent link, file URL
+
+**Download allowance**:
+How many times a buyer may download one file from one order, and for how long (5 times in 1 year); staff can reset it.
+_Avoid_: download quota
 
 **Shipment**:
 A physical parcel sent to a buyer.
